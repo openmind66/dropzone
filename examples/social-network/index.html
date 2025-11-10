@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropzone Social</title>
+    <link rel="stylesheet" href="../../dist/min/dropzone.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>Dropzone Social</h1>
+      <p>Un mini réseau social avec partage de photos.</p>
+    </header>
+
+    <main class="layout">
+      <aside class="profile-card">
+        <img
+          src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=300&q=80"
+          alt="Avatar utilisateur"
+          class="profile-card__avatar"
+        />
+        <h2 class="profile-card__name">Camille Dupont</h2>
+        <p class="profile-card__bio">
+          Passionné·e de voyages et de photographie. Toujours prêt·e à
+          partager de bons moments.
+        </p>
+        <ul class="profile-card__stats">
+          <li><strong id="stats-posts">0</strong><span>publications</span></li>
+          <li><strong>248</strong><span>abonnés</span></li>
+          <li><strong>189</strong><span>abonnements</span></li>
+        </ul>
+      </aside>
+
+      <section class="feed">
+        <article class="composer" aria-label="Créer une publication">
+          <h2>Nouvelle publication</h2>
+          <form id="composer-form">
+            <label class="composer__label" for="composer-message"
+              >Exprimez-vous</label
+            >
+            <textarea
+              id="composer-message"
+              name="message"
+              rows="3"
+              placeholder="Quoi de neuf aujourd'hui ?"
+              required
+            ></textarea>
+
+            <div class="dropzone" id="composer-dropzone">
+              <div class="dz-message">
+                Déposez une image ici ou cliquez pour parcourir vos fichiers
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary">
+              Publier
+            </button>
+          </form>
+        </article>
+
+        <section id="feed-list" class="feed-list" aria-live="polite">
+          <!-- Les publications apparaîtront ici -->
+        </section>
+      </section>
+    </main>
+
+    <template id="post-template">
+      <article class="post">
+        <header class="post__header">
+          <img
+            src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=80&q=80"
+            alt="Avatar de l'auteur"
+            class="post__avatar"
+          />
+          <div>
+            <h3 class="post__author">Camille Dupont</h3>
+            <time class="post__time">À l'instant</time>
+          </div>
+        </header>
+        <p class="post__message"></p>
+        <img class="post__image" alt="Média partagé" hidden />
+        <footer class="post__footer">
+          <button class="btn btn--ghost" type="button">👍 J'aime</button>
+          <button class="btn btn--ghost" type="button">💬 Commenter</button>
+          <button class="btn btn--ghost" type="button">↗️ Partager</button>
+        </footer>
+      </article>
+    </template>
+
+    <script src="../../dist/min/dropzone.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
